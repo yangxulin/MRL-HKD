@@ -17,4 +17,4 @@ from the [TCGA official website](https://portal.gdc.cancer.gov/).
 
 
 ## Train and test
-Please refer to train_test.py for training and evaluation steps.
+Please refer to [train_test.py](https://github.com/yangxulin/MRL-HKD/blob/main/example/train_test.py) for training and evaluation steps.
