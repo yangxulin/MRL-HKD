@@ -45,7 +45,7 @@ def train():
         hidden_dim_list = [64, 128, 256, 512]
         alpha_list = [0.01, 0.1, 1.0]
         beta_list = [0.1, 1.0, 10.0]
-        tuning_para_data = pd.DataFrame(columns=['learning_rate', 'output_size', 'hidden_dim','alpha', 'beta','c-index'])
+        tuning_para_data = pd.DataFrame(columns=['learning_rate', 'dropout', 'output_size', 'hidden_dim','alpha', 'beta','c-index'])
         for lr in learning_rate_list:
             for dropout in dropout_list:
                 for output_size in output_size_list:
@@ -74,7 +74,7 @@ def train():
                                     inner_cindex.append(val_cindex)
                                 val_cindex = np.mean(inner_cindex)
                                 print('LR:{}, output_size:{}, dropout:{}, hidden_dim:{},alpha:{}, beta:{}, C-index:{}'.format(lr, dropout, output_size, hidden_dim, alpha, beta, val_cindex))
-                                alist = [lr, output_size, hidden_dim, alpha, beta, val_cindex]
+                                alist = [lr, dropout, output_size, hidden_dim, alpha, beta, val_cindex]
                                 tuning_para_data.loc[len(tuning_para_data)] = alist
         # Optimal hyperparameters
         max_c_index = tuning_para_data['c-index'].max()
